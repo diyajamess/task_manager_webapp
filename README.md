@@ -3,6 +3,7 @@
 ## 🌟 Description
 This project is a **simple Task Manager web app** built using **React** and **Material-UI**. It allows users to **manage their tasks** with features such as **creating tasks**, **viewing upcoming,pending and completed tasks**, and **a simple user profile**. The app also supports **light and dark themes**.
 
+Built with React.js and modern JavaScript tools
 ---
 
 ## ⚙️ Key Features
