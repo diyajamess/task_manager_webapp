@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   AppBar,
   Tabs,
@@ -20,9 +20,9 @@ import { ThemeProvider, createTheme } from '@mui/material/styles';
 import Brightness4Icon from '@mui/icons-material/Brightness4';
 import Brightness7Icon from '@mui/icons-material/Brightness7';
 import AdbIcon from '@mui/icons-material/Adb';
-import NewTask from './NewTask';
-import NextTask from './NextTask';
-import ProfilePage from './ProfilePage';
+import NewTask from './Components/NewTask';
+import NextTask from './Components/NextTask';
+import ProfilePage from './Components/ProfilePage';
 
 function TabPanel({ children, value, index, ...other }) {
   return (
@@ -46,7 +46,6 @@ export default function App() {
   const [tabValue, setTabValue] = useState(2); // Start with the welcome tab active
   const [themeMode, setThemeMode] = useState('light');
   const [loading, setLoading] = useState(false);
-  const settings = ['Profile', 'Logout'];
 
   const [anchorElUser, setAnchorElUser] = useState(null);
   const [user, setUser] = useState({
@@ -57,6 +56,10 @@ export default function App() {
   const handleOpenUserMenu = (event) => {
     setAnchorElUser(event.currentTarget);
   };
+
+  useEffect(() => {
+    document.title="Toodle Do"
+  },[]);
 
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
@@ -98,7 +101,7 @@ export default function App() {
               variant="h6"
               noWrap
               component="a"
-              href="#"
+              href="/"
               onClick={() => setTabValue(2)} // Navigate to the welcome tab on logo click
               sx={{
                 mr: 2,
@@ -181,6 +184,7 @@ export default function App() {
           </Typography>
           
           <Typography variant="h6" color="textSecondary" sx={{ marginBottom: 2 }}>
+  
             {greeting()} We're thrilled to help you manage your tasks. Let's get started! 😄
           </Typography>
           
